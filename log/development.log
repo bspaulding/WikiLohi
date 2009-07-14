@@ -1,0 +1,2298 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.8ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePages (20090714172459)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "pages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "internal" boolean, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090714172459')[0m
+Migrating to CreateRevisions (20090714172713)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCREATE TABLE "revisions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090714172713')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("pages")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("revisions")[0m
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:29:07) [GET]
+  [4;36;1mPage Load (0.4ms)[0m   [0;1mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 21ms (View: 15, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing PagesController#new (for 127.0.0.1 at 2009-07-14 13:29:10) [GET]
+Rendering template within layouts/pages
+Rendering pages/new
+Completed in 11ms (View: 7, DB: 0) | 200 OK [http://localhost/pages/new]
+
+
+Processing PagesController#create (for 127.0.0.1 at 2009-07-14 13:29:17) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs=", "page"=>{"name"=>"FirstPage", "internal"=>"0"}}
+  [4;35;1mPage Create (0.6ms)[0m   [0mINSERT INTO "pages" ("name", "created_at", "updated_at", "internal") VALUES('FirstPage', '2009-07-14 17:29:17', '2009-07-14 17:29:17', 'f')[0m
+Redirected to http://localhost:3000/pages/1
+Completed in 68ms (DB: 1) | 302 Found [http://localhost/pages]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 13:29:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."id" = 1) [0m
+Rendering template within layouts/pages
+Rendering pages/show
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/pages/1]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:29:21) [GET]
+  [4;35;1mPage Load (0.6ms)[0m   [0mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:30:03) [GET]
+  [4;36;1mPage Load (0.5ms)[0m   [0;1mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 13:30:04) [GET]
+  Parameters: {"id"=>"1"}
+
+ActiveRecord::RecordNotFound (Couldn't find Page without an ID):
+  app/controllers/pages_controller.rb:16:in `show'
+
+Rendered rescues/_trace (41.8ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:30:47) [GET]
+  [4;35;1mPage Load (0.7ms)[0m   [0mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 11ms (View: 4, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 13:30:48) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPage Load (0.1ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" IS NULL) LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #3 of app/views/pages/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @page.name %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/pages/show.html.erb:3
+    app/controllers/pages_controller.rb:18:in `show'
+
+Rendered rescues/_trace (131.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 13:32:40) [GET]
+  Parameters: {"name"=>"1"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = '1') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #3 of app/views/pages/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @page.name %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/pages/show.html.erb:3
+    app/controllers/pages_controller.rb:18:in `show'
+
+Rendered rescues/_trace (143.7ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:32:43) [GET]
+  [4;36;1mPage Load (1.3ms)[0m   [0;1mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+
+ActionView::TemplateError (undefined method `edit_page_path' for #<ActionView::Base:0x1044098b8>) on line #14 of app/views/pages/index.html.erb:
+11:     <td><%=h page.name %></td>
+12:     <td><%=h page.internal %></td>
+13:     <td><%= link_to 'Show', page %></td>
+14:     <td><%= link_to 'Edit', edit_page_path(page) %></td>
+15:     <td><%= link_to 'Destroy', page, :confirm => 'Are you sure?', :method => :delete %></td>
+16:   </tr>
+17: <% end %>
+
+    app/views/pages/index.html.erb:14
+    app/views/pages/index.html.erb:9:in `each'
+    app/views/pages/index.html.erb:9
+    app/controllers/pages_controller.rb:7:in `index'
+
+Rendered rescues/_trace (53.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:33:46) [GET]
+  [4;35;1mPage Load (0.5ms)[0m   [0mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+
+ActionView::TemplateError (undefined local variable or method `new_page_path' for #<ActionView::Base:0x10408c9d8>) on line #22 of app/views/pages/index.html.erb:
+19: 
+20: <br />
+21: 
+22: <%= link_to 'New page', new_page_path %>
+
+    app/views/pages/index.html.erb:22
+    app/controllers/pages_controller.rb:7:in `index'
+
+Rendered rescues/_trace (53.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:34:29) [GET]
+  [4;36;1mPage Load (0.5ms)[0m   [0;1mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:35:49) [GET]
+  [4;35;1mPage Load (0.5ms)[0m   [0mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 8ms (View: 3, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 13:35:52) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-07-14 13:35:54) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/edit
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/pages/FirstPage/edit]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:35:56) [GET]
+  [4;36;1mPage Load (0.5ms)[0m   [0;1mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 13:36:07) [DELETE]
+  Parameters: {"name"=>"FirstPage", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs="}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:36:09) [GET]
+  [4;36;1mPage Load (0.5ms)[0m   [0;1mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 8ms (View: 3, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:37:18) [GET]
+  [4;35;1mPage Load (0.6ms)[0m   [0mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 12ms (View: 6, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:42:52) [GET]
+  [4;36;1mPage Load (0.5ms)[0m   [0;1mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 8ms (View: 3, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 13:42:55) [DELETE]
+  Parameters: {"name"=>"FirstPage", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs="}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:42:58) [GET]
+  [4;36;1mPage Load (0.5ms)[0m   [0;1mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 8ms (View: 4, DB: 1) | 200 OK [http://localhost/pages]
+/!\ FAILSAFE /!\  Tue Jul 14 13:44:38 -0400 2009
+  Status: 500 Internal Server Error
+  /Users/brads/Documents/Development/wikilohi/config/routes.rb:2: odd number list for Hash
+...nditions => {:method => {:get}}
+                              ^
+/Users/brads/Documents/Development/wikilohi/config/routes.rb:3: odd number list for Hash
+...tions => {:method => {:delete}}
+                              ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:145:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:145:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:145:in `load'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:286:in `load_routes!'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:286:in `each'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:286:in `load_routes!'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:266:in `load!'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:281:in `reload'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:59:in `reload_application'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:8:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:45:26) [GET]
+  [4;35;1mPage Load (0.5ms)[0m   [0mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 8ms (View: 4, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:45:41) [GET]
+  [4;36;1mPage Load (0.5ms)[0m   [0;1mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 9ms (View: 3, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#destroy (for 127.0.0.1 at 2009-07-14 13:45:44) [DELETE]
+  Parameters: {"name"=>"FirstPage", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs="}
+  [4;35;1mPage Load (0.1ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Page with ID=FirstPage):
+  app/controllers/pages_controller.rb:77:in `destroy'
+
+Rendered rescues/_trace (38.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:45:54) [GET]
+  [4;36;1mPage Load (0.5ms)[0m   [0;1mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 8ms (View: 4, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#destroy (for 127.0.0.1 at 2009-07-14 13:46:03) [DELETE]
+  Parameters: {"name"=>"FirstPage", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs="}
+  [4;35;1mPage Load (0.1ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Page with ID=FirstPage):
+  app/controllers/pages_controller.rb:77:in `destroy'
+
+Rendered rescues/_trace (39.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:46:34) [GET]
+  [4;36;1mPage Load (0.5ms)[0m   [0;1mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#destroy (for 127.0.0.1 at 2009-07-14 13:46:35) [DELETE]
+  Parameters: {"name"=>"FirstPage", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs="}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+  [4;36;1mPage Destroy (0.3ms)[0m   [0;1mDELETE FROM "pages" WHERE "id" = 1[0m
+Redirected to http://localhost:3000/pages
+Completed in 10ms (DB: 1) | 302 Found [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:46:35) [GET]
+  [4;35;1mPage Load (0.4ms)[0m   [0mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 6ms (View: 2, DB: 0) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 13:46:38) [GET]
+  Parameters: {"name"=>"new"}
+  [4;36;1mPage Load (0.1ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'new') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #3 of app/views/pages/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @page.name %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/pages/show.html.erb:3
+    app/controllers/pages_controller.rb:18:in `show'
+
+Rendered rescues/_trace (51.8ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#new (for 127.0.0.1 at 2009-07-14 13:47:04) [GET]
+Rendering template within layouts/pages
+Rendering pages/new
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/pages/new]
+
+
+Processing PagesController#create (for 127.0.0.1 at 2009-07-14 13:47:07) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs=", "page"=>{"name"=>"FirstPage", "internal"=>"0"}}
+  [4;35;1mPage Create (0.4ms)[0m   [0mINSERT INTO "pages" ("name", "created_at", "updated_at", "internal") VALUES('FirstPage', '2009-07-14 17:47:07', '2009-07-14 17:47:07', 'f')[0m
+Redirected to http://localhost:3000/pages/2
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/pages]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 13:47:07) [GET]
+  Parameters: {"name"=>"2"}
+  [4;36;1mPage Load (0.1ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = '2') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #3 of app/views/pages/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @page.name %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/pages/show.html.erb:3
+    app/controllers/pages_controller.rb:18:in `show'
+
+Rendered rescues/_trace (51.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 13:47:43) [GET]
+  Parameters: {"name"=>"2"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = '2') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #3 of app/views/pages/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @page.name %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/pages/show.html.erb:3
+    app/controllers/pages_controller.rb:18:in `show'
+
+Rendered rescues/_trace (135.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 13:49:51) [GET]
+  Parameters: {"name"=>"2"}
+  [4;36;1mPage Load (0.1ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = '2') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #3 of app/views/pages/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @page.name %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/pages/show.html.erb:3
+    app/controllers/pages_controller.rb:18:in `show'
+
+Rendered rescues/_trace (52.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:49:55) [GET]
+  [4;35;1mPage Load (0.5ms)[0m   [0mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 8ms (View: 3, DB: 1) | 200 OK [http://localhost/pages/]
+
+
+Processing PagesController#new (for 127.0.0.1 at 2009-07-14 13:49:57) [GET]
+Rendering template within layouts/pages
+Rendering pages/new
+
+ActionView::TemplateError (undefined method `pages_path' for #<ActionView::Base:0x1044f83c8>) on line #3 of app/views/pages/new.html.erb:
+1: <h1>New page</h1>
+2: 
+3: <% form_for(@page) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/pages/new.html.erb:3
+    app/controllers/pages_controller.rb:29:in `new'
+
+Rendered rescues/_trace (52.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#new (for 127.0.0.1 at 2009-07-14 13:50:27) [GET]
+Rendering template within layouts/pages
+Rendering pages/new
+
+ActionView::TemplateError (undefined method `pages_path' for #<ActionView::Base:0x10411ec48>) on line #3 of app/views/pages/new.html.erb:
+1: <h1>New page</h1>
+2: 
+3: <% form_for(@page) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/pages/new.html.erb:3
+    app/controllers/pages_controller.rb:29:in `new'
+
+Rendered rescues/_trace (145.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#new (for 127.0.0.1 at 2009-07-14 13:50:32) [GET]
+Rendering template within layouts/pages
+Rendering pages/new
+
+ActionView::TemplateError (undefined method `pages_path' for #<ActionView::Base:0x1042debc8>) on line #3 of app/views/pages/new.html.erb:
+1: <h1>New page</h1>
+2: 
+3: <% form_for(@page) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/pages/new.html.erb:3
+    app/controllers/pages_controller.rb:29:in `new'
+
+Rendered rescues/_trace (53.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#new (for 127.0.0.1 at 2009-07-14 13:50:47) [GET]
+Rendering template within layouts/pages
+Rendering pages/new
+
+ActionView::TemplateError (undefined method `pages_path' for #<ActionView::Base:0x104463048>) on line #3 of app/views/pages/new.html.erb:
+1: <h1>New page</h1>
+2: 
+3: <% form_for(@page) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/pages/new.html.erb:3
+    app/controllers/pages_controller.rb:29:in `new'
+
+Rendered rescues/_trace (53.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#new (for 127.0.0.1 at 2009-07-14 13:50:48) [GET]
+Rendering template within layouts/pages
+Rendering pages/new
+
+ActionView::TemplateError (undefined method `pages_path' for #<ActionView::Base:0x1040ba9c8>) on line #3 of app/views/pages/new.html.erb:
+1: <h1>New page</h1>
+2: 
+3: <% form_for(@page) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/pages/new.html.erb:3
+    app/controllers/pages_controller.rb:29:in `new'
+
+Rendered rescues/_trace (136.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#new (for 127.0.0.1 at 2009-07-14 13:50:58) [GET]
+Rendering template within layouts/pages
+Rendering pages/new
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/pages/new]
+
+
+Processing PagesController#create (for 127.0.0.1 at 2009-07-14 13:51:18) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs=", "page"=>{"name"=>"SecondPage", "internal"=>"0"}}
+  [4;36;1mPage Create (0.8ms)[0m   [0;1mINSERT INTO "pages" ("name", "created_at", "updated_at", "internal") VALUES('SecondPage', '2009-07-14 17:51:18', '2009-07-14 17:51:18', 'f')[0m
+Redirected to http://localhost:3000/pages/3
+Completed in 12ms (DB: 1) | 302 Found [http://localhost/pages]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 13:51:18) [GET]
+  Parameters: {"name"=>"3"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = '3') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #3 of app/views/pages/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @page.name %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/pages/show.html.erb:3
+    app/controllers/pages_controller.rb:18:in `show'
+
+Rendered rescues/_trace (53.5ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:51:26) [GET]
+  [4;36;1mPage Load (0.6ms)[0m   [0;1mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:54:47) [GET]
+  [4;35;1mPage Load (0.6ms)[0m   [0mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 25ms (View: 20, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:55:02) [GET]
+  [4;36;1mPage Load (0.6ms)[0m   [0;1mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 10ms (View: 4, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:55:21) [GET]
+  [4;35;1mPage Load (0.6ms)[0m   [0mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 11ms (View: 6, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 13:55:24) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:55:26) [GET]
+  [4;35;1mPage Load (0.6ms)[0m   [0mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 13:55:27) [GET]
+  Parameters: {"name"=>"SecondPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'SecondPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/pages/SecondPage]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:55:28) [GET]
+  [4;35;1mPage Load (0.6ms)[0m   [0mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-07-14 13:56:34) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/edit
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/pages/FirstPage/edit]
+
+
+Processing PagesController#update (for 127.0.0.1 at 2009-07-14 13:56:40) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs=", "id"=>"FirstPage", "page"=>{"name"=>"FirstPage1", "internal"=>"0"}}
+  [4;35;1mPage Load (0.1ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Page with ID=FirstPage):
+  app/controllers/pages_controller.rb:60:in `update'
+
+Rendered rescues/_trace (117.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#update (for 127.0.0.1 at 2009-07-14 13:57:45) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs=", "id"=>"FirstPage", "page"=>{"name"=>"FirstPage1", "internal"=>"0"}}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage1') LIMIT 1[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.update_attributes):
+  app/controllers/pages_controller.rb:63:in `update'
+  app/controllers/pages_controller.rb:62:in `update'
+
+Rendered rescues/_trace (40.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-07-14 13:57:47) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/edit
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/pages/FirstPage/edit]
+
+
+Processing PagesController#update (for 127.0.0.1 at 2009-07-14 13:57:50) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs=", "id"=>"FirstPage", "page"=>{"name"=>"FirstPage1", "internal"=>"0"}}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage1') LIMIT 1[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.update_attributes):
+  app/controllers/pages_controller.rb:63:in `update'
+  app/controllers/pages_controller.rb:62:in `update'
+
+Rendered rescues/_trace (121.6ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#update (for 127.0.0.1 at 2009-07-14 13:58:53) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs=", "id"=>"FirstPage", "page"=>{"name"=>"FirstPage1", "internal"=>"0"}}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+  [4;36;1mPage Update (0.3ms)[0m   [0;1mUPDATE "pages" SET "updated_at" = '2009-07-14 17:58:53', "name" = 'FirstPage1' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/pages/2
+Completed in 11ms (DB: 1) | 302 Found [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 13:58:53) [GET]
+  Parameters: {"name"=>"2"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = '2') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #3 of app/views/pages/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @page.name %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/pages/show.html.erb:3
+    app/controllers/pages_controller.rb:18:in `show'
+
+Rendered rescues/_trace (55.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 13:58:57) [GET]
+  [4;36;1mPage Load (0.6ms)[0m   [0;1mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 91ms (View: 86, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-07-14 13:59:08) [GET]
+  Parameters: {"name"=>"FirstPage1"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage1') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/edit
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://localhost/pages/FirstPage1/edit]
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-07-14 14:02:42) [GET]
+  Parameters: {"name"=>"FirstPage1"}
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage1') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/edit
+ERROR: compiling _run_erb_app47views47pages47edit46html46erb RAISED compile error
+/Users/brads/Documents/Development/wikilohi/app/views/pages/edit.html.erb:3: syntax error, unexpected ',', expecting kEND
+;  form_for(@page), :url => {:controller => 'page...
+                   ^
+/Users/brads/Documents/Development/wikilohi/app/views/pages/edit.html.erb:3: syntax error, unexpected kDO, expecting kEND
+...date', :name => @page.name} do |f| ; @output_buffer.concat "...
+                              ^
+/Users/brads/Documents/Development/wikilohi/app/views/pages/edit.html.erb:21: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47pages47edit46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Editing page</h1>\n\n"
+
+;  form_for(@page), :url => {:controller => 'pages', :action => 'update', :name => @page.name} do |f| ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( f.error_messages ).to_s); @output_buffer.concat "\n\n  <p>\n    "
+
+
+; @output_buffer.concat(( f.label :name ).to_s); @output_buffer.concat "<br />\n    "
+; @output_buffer.concat(( f.text_field :name ).to_s); @output_buffer.concat "\n  </p>\n  <p>\n    "
+
+
+; @output_buffer.concat(( f.label :internal ).to_s); @output_buffer.concat "<br />\n    "
+; @output_buffer.concat(( f.check_box :internal ).to_s); @output_buffer.concat "\n  </p>\n  <p>\n    "
+
+
+; @output_buffer.concat(( f.submit 'Update' ).to_s); @output_buffer.concat "\n  </p>\n"
+
+;  end ; @output_buffer.concat "\n\n"
+
+; @output_buffer.concat(( link_to 'Show', @page ).to_s); @output_buffer.concat " |\n"
+; @output_buffer.concat(( link_to 'Back', pages_path ).to_s); @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/brads/Documents/Development/wikilohi/app/views/pages/edit.html.erb:21:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:937:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1317:in `default_render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1323:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/brads/Documents/Development/wikilohi/app/views/pages/edit.html.erb:3: syntax error, unexpected ',', expecting kEND
+;  form_for(@page), :url => {:controller => 'page...
+                   ^
+/Users/brads/Documents/Development/wikilohi/app/views/pages/edit.html.erb:3: syntax error, unexpected kDO, expecting kEND
+...date', :name => @page.name} do |f| ; @output_buffer.concat "...
+                              ^
+/Users/brads/Documents/Development/wikilohi/app/views/pages/edit.html.erb:21: syntax error, unexpected kENSURE, expecting $end) on line #3 of app/views/pages/edit.html.erb:
+1: <h1>Editing page</h1>
+2: 
+3: <% form_for(@page), :url => {:controller => 'pages', :action => 'update', :name => @page.name} do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/pages/edit.html.erb:21:in `compile!'
+
+Rendered rescues/_trace (46.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-07-14 14:02:55) [GET]
+  Parameters: {"name"=>"FirstPage1"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage1') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/edit
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://localhost/pages/FirstPage1/edit]
+
+
+Processing PagesController#update (for 127.0.0.1 at 2009-07-14 14:03:56) [PUT]
+  Parameters: {"name"=>"FirstPage1", "commit"=>"Update", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs=", "id"=>"update", "page"=>{"name"=>"FirstPage1", "internal"=>"0"}}
+  [4;36;1mPage Load (0.1ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Page with ID=update):
+  app/controllers/pages_controller.rb:60:in `update'
+
+Rendered rescues/_trace (118.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-07-14 14:04:24) [GET]
+  Parameters: {"name"=>"FirstPage1"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage1') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/edit
+Completed in 13ms (View: 7, DB: 0) | 200 OK [http://localhost/pages/FirstPage1/edit]
+
+
+Processing PagesController#update (for 127.0.0.1 at 2009-07-14 14:04:33) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs=", "id"=>"2", "page"=>{"name"=>"FirstPage1", "internal"=>"0"}}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."id" = 2) [0m
+Redirected to http://localhost:3000/pages/2
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/pages/2]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:04:33) [GET]
+  Parameters: {"name"=>"2"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = '2') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #3 of app/views/pages/show.html.erb:
+1: <p>
+2:   <b>Name:</b>
+3:   <%=h @page.name %>
+4: </p>
+5: 
+6: <p>
+
+    app/views/pages/show.html.erb:3
+    app/controllers/pages_controller.rb:18:in `show'
+
+Rendered rescues/_trace (134.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 14:05:30) [GET]
+  [4;36;1mPage Load (0.6ms)[0m   [0;1mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 10ms (View: 5, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-07-14 14:05:32) [GET]
+  Parameters: {"name"=>"FirstPage1"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage1') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/edit
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/pages/FirstPage1/edit]
+
+
+Processing PagesController#update (for 127.0.0.1 at 2009-07-14 14:05:34) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs=", "id"=>"2", "page"=>{"name"=>"FirstPage", "internal"=>"0"}}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."id" = 2) [0m
+  [4;35;1mPage Update (0.3ms)[0m   [0mUPDATE "pages" SET "updated_at" = '2009-07-14 18:05:34', "name" = 'FirstPage' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/pages/FirstPage
+Completed in 93ms (DB: 1) | 302 Found [http://localhost/pages/2]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:05:34) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 14:05:42) [GET]
+  [4;35;1mPage Load (0.6ms)[0m   [0mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#destroy (for 127.0.0.1 at 2009-07-14 14:05:46) [DELETE]
+  Parameters: {"name"=>"SecondPage", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs="}
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'SecondPage') LIMIT 1[0m
+  [4;35;1mPage Destroy (0.4ms)[0m   [0mDELETE FROM "pages" WHERE "id" = 3[0m
+Redirected to http://localhost:3000/pages
+Completed in 11ms (DB: 1) | 302 Found [http://localhost/pages/SecondPage]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 14:05:46) [GET]
+  [4;36;1mPage Load (0.5ms)[0m   [0;1mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 8ms (View: 3, DB: 0) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-07-14 14:05:49) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/edit
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/pages/FirstPage/edit]
+
+
+Processing PagesController#update (for 127.0.0.1 at 2009-07-14 14:05:52) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs=", "id"=>"2", "page"=>{"name"=>"FirstPage", "internal"=>"1"}}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."id" = 2) [0m
+  [4;35;1mPage Update (0.7ms)[0m   [0mUPDATE "pages" SET "updated_at" = '2009-07-14 18:05:52', "internal" = 't' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/pages/FirstPage
+Completed in 12ms (DB: 1) | 302 Found [http://localhost/pages/2]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:05:52) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 14:05:53) [GET]
+  [4;35;1mPage Load (0.6ms)[0m   [0mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 9ms (View: 4, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:08:23) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+Completed in 8ms (View: 2, DB: 0) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:09:41) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+
+ActionView::TemplateError (undefined method `revisions' for #<Page:0x1040b1148>) on line #15 of app/views/pages/show.html.erb:
+12: <p>
+13: 	<b>Revisions:</b><br/>
+14: 	<ul>
+15: 	<% @page.revisions.each do |rev| %>
+16: 	<li><%= rev.created_at %></li>
+17: 	<% end %>
+18: 	</ul>
+
+    app/views/pages/show.html.erb:15
+    app/controllers/pages_controller.rb:18:in `show'
+
+Rendered rescues/_trace (126.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePages (20090714172459)
+Migrating to CreateRevisions (20090714172713)
+Migrating to AddPageIdToRevision (20090714181044)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (20.9ms)[0m   [0mALTER TABLE "revisions" ADD "page_id" integer[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090714181044')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("pages")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("revisions")[0m
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:10:55) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.2ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+Completed in 43ms (View: 7, DB: 0) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:12:24) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+  [4;36;1mRevision Load (0.1ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+Completed in 16ms (View: 9, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:12:34) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mRevision Load (0.2ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+Completed in 17ms (View: 10, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:12:36) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.2ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+Completed in 93ms (View: 7, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:12:41) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+  [4;36;1mRevision Load (0.1ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+Completed in 19ms (View: 11, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "revisions" [0m
+  [4;35;1mPage Load (0.4ms)[0m   [0mSELECT * FROM "pages" LIMIT 1[0m
+  [4;36;1mRevision Load (0.2ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:16:29) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+  [4;36;1mRevision Load (0.1ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+Completed in 15ms (View: 8, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "revisions" [0m
+  [4;36;1mPage Load (0.5ms)[0m   [0;1mSELECT * FROM "pages" LIMIT 1[0m
+  [4;35;1mRevision Load (0.3ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mRevision Create (1.4ms)[0m   [0;1mINSERT INTO "revisions" ("created_at", "updated_at", "page_id", "content") VALUES('2009-07-14 18:16:54', '2009-07-14 18:16:54', NULL, 'This is the new page content')[0m
+  [4;35;1mRevision Update (0.3ms)[0m   [0mUPDATE "revisions" SET "updated_at" = '2009-07-14 18:16:54', "page_id" = 2 WHERE "id" = 1[0m
+  [4;36;1mRevision Load (0.4ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "revisions" [0m
+  [4;36;1mRevision Create (0.6ms)[0m   [0;1mINSERT INTO "revisions" ("created_at", "updated_at", "page_id", "content") VALUES('2009-07-14 18:17:23', '2009-07-14 18:17:23', NULL, 'This is the newer page content. ')[0m
+  [4;35;1mRevision Update (0.7ms)[0m   [0mUPDATE "revisions" SET "updated_at" = '2009-07-14 18:17:23', "page_id" = 2 WHERE "id" = 2[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "revisions" [0m
+  [4;35;1mRevision Load (0.4ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mRevision Load (0.5ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:18:02) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+  [4;36;1mRevision Load (0.3ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+Completed in 213ms (View: 205, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-07-14 14:18:16) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/edit
+Completed in 88ms (View: 82, DB: 0) | 200 OK [http://localhost/pages/FirstPage/edit]
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-07-14 14:18:42) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/edit
+  [4;35;1mRevision Load (0.3ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 20ms (View: 13, DB: 1) | 200 OK [http://localhost/pages/FirstPage/edit]
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-07-14 14:18:48) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.4ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/edit
+  [4;35;1mRevision Load (0.3ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 20ms (View: 13, DB: 1) | 200 OK [http://localhost/pages/FirstPage/edit]
+
+
+Processing PagesController#update (for 127.0.0.1 at 2009-07-14 14:19:12) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs=", "id"=>"2", "page"=>{"name"=>"FirstPage", "content"=>"This is the newest page content. Edited in a text area! :)", "internal"=>"1"}}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."id" = 2) [0m
+  [4;35;1mRevision Create (0.4ms)[0m   [0mINSERT INTO "revisions" ("created_at", "updated_at", "page_id", "content") VALUES('2009-07-14 18:19:12', '2009-07-14 18:19:12', NULL, 'This is the newest page content. Edited in a text area! :)')[0m
+  [4;36;1mRevision Update (0.3ms)[0m   [0;1mUPDATE "revisions" SET "updated_at" = '2009-07-14 18:19:12', "page_id" = 2 WHERE "id" = 3[0m
+Redirected to http://localhost:3000/pages/FirstPage
+Completed in 20ms (DB: 1) | 302 Found [http://localhost/pages/2]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:19:12) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+  [4;36;1mRevision Load (0.3ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+Completed in 15ms (View: 8, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:19:54) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mRevision Load (0.3ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+  [4;35;1mRevision Load (0.4ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) [0m
+Completed in 20ms (View: 12, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:21:05) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.3ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 17ms (View: 10, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:21:16) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mRevision Load (0.3ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 17ms (View: 10, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:21:40) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.3ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 18ms (View: 11, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:21:53) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mRevision Load (0.3ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 18ms (View: 10, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-07-14 14:21:55) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/edit
+  [4;35;1mRevision Load (0.3ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 15ms (View: 9, DB: 1) | 200 OK [http://localhost/pages/FirstPage/edit]
+
+
+Processing PagesController#update (for 127.0.0.1 at 2009-07-14 14:22:17) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs=", "id"=>"2", "page"=>{"name"=>"FirstPage", "content"=>"This is the newest page content. Edited in a text area! :) <code>Check out some code.</code>", "internal"=>"1"}}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."id" = 2) [0m
+  [4;35;1mRevision Create (0.5ms)[0m   [0mINSERT INTO "revisions" ("created_at", "updated_at", "page_id", "content") VALUES('2009-07-14 18:22:17', '2009-07-14 18:22:17', NULL, 'This is the newest page content. Edited in a text area! :) <code>Check out some code.</code>')[0m
+  [4;36;1mRevision Update (0.3ms)[0m   [0;1mUPDATE "revisions" SET "updated_at" = '2009-07-14 18:22:17', "page_id" = 2 WHERE "id" = 4[0m
+Redirected to http://localhost:3000/pages/FirstPage
+Completed in 22ms (DB: 1) | 302 Found [http://localhost/pages/2]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:22:17) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mRevision Load (0.3ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 14ms (View: 7, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:51:25) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.4ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+
+ActionView::TemplateError (uninitialized constant ActionView::Helpers::TextHelper::RedCloth) on line #8 of app/views/pages/show.html.erb:
+5: </p>
+6: 
+7: <p>
+8: 	<%= textilize @page.content %>
+9: </p>
+10: 
+11: <%= link_to 'Edit', edit_page_path(@page) %> |
+
+    app/views/pages/show.html.erb:8
+    app/controllers/pages_controller.rb:18:in `show'
+
+Rendered rescues/_trace (133.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:51:45) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mRevision Load (0.3ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+
+ActionView::TemplateError (uninitialized constant ActionView::Helpers::TextHelper::RedCloth) on line #8 of app/views/pages/show.html.erb:
+5: </p>
+6: 
+7: <p>
+8: 	<%= textilize @page.content %>
+9: </p>
+10: 
+11: <%= link_to 'Edit', edit_page_path(@page) %> |
+
+    app/views/pages/show.html.erb:8
+    app/controllers/pages_controller.rb:18:in `show'
+
+Rendered rescues/_trace (51.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:51:46) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.4ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+
+ActionView::TemplateError (uninitialized constant ActionView::Helpers::TextHelper::RedCloth) on line #8 of app/views/pages/show.html.erb:
+5: </p>
+6: 
+7: <p>
+8: 	<%= textilize @page.content %>
+9: </p>
+10: 
+11: <%= link_to 'Edit', edit_page_path(@page) %> |
+
+    app/views/pages/show.html.erb:8
+    app/controllers/pages_controller.rb:18:in `show'
+
+Rendered rescues/_trace (51.7ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:51:56) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.4ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 103ms (View: 88, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-07-14 14:52:00) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/edit
+  [4;36;1mRevision Load (0.4ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 90ms (View: 83, DB: 1) | 200 OK [http://localhost/pages/FirstPage/edit]
+
+
+Processing PagesController#update (for 127.0.0.1 at 2009-07-14 14:52:11) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs=", "id"=>"2", "page"=>{"name"=>"FirstPage", "content"=>"This is the newest page content. Edited in a *text area!* :)\r\n\r\n<code>Check out some code.</code>", "internal"=>"1"}}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."id" = 2) [0m
+  [4;36;1mRevision Create (0.5ms)[0m   [0;1mINSERT INTO "revisions" ("created_at", "updated_at", "page_id", "content") VALUES('2009-07-14 18:52:11', '2009-07-14 18:52:11', NULL, 'This is the newest page content. Edited in a *text area!* :)
+
+<code>Check out some code.</code>')[0m
+  [4;35;1mRevision Update (0.3ms)[0m   [0mUPDATE "revisions" SET "updated_at" = '2009-07-14 18:52:11', "page_id" = 2 WHERE "id" = 5[0m
+Redirected to http://localhost:3000/pages/FirstPage
+Completed in 22ms (DB: 1) | 302 Found [http://localhost/pages/2]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:52:11) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.4ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 17ms (View: 10, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:57:23) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mRevision Load (0.3ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 18ms (View: 11, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:57:24) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.3ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 15ms (View: 8, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-07-14 14:57:26) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/edit
+  [4;36;1mRevision Load (0.3ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 16ms (View: 9, DB: 1) | 200 OK [http://localhost/pages/FirstPage/edit]
+
+
+Processing PagesController#update (for 127.0.0.1 at 2009-07-14 14:57:40) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs=", "id"=>"2", "page"=>{"name"=>"FirstPage", "content"=>"This is the newest page content. Edited in a *text area!* :)\r\n\r\n<code>Check out some code.</code>\r\n\r\nHere I'd be linking to SecondPage.", "internal"=>"1"}}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."id" = 2) [0m
+  [4;36;1mRevision Create (35.6ms)[0m   [0;1mINSERT INTO "revisions" ("created_at", "updated_at", "page_id", "content") VALUES('2009-07-14 18:57:40', '2009-07-14 18:57:40', NULL, 'This is the newest page content. Edited in a *text area!* :)
+
+<code>Check out some code.</code>
+
+Here I''d be linking to SecondPage.')[0m
+  [4;35;1mRevision Update (0.4ms)[0m   [0mUPDATE "revisions" SET "updated_at" = '2009-07-14 18:57:40', "page_id" = 2 WHERE "id" = 6[0m
+Redirected to http://localhost:3000/pages/FirstPage
+Completed in 57ms (DB: 36) | 302 Found [http://localhost/pages/2]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:57:40) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.3ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 35ms (View: 28, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-07-14 14:57:48) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/edit
+  [4;36;1mRevision Load (0.3ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 16ms (View: 9, DB: 1) | 200 OK [http://localhost/pages/FirstPage/edit]
+
+
+Processing PagesController#update (for 127.0.0.1 at 2009-07-14 14:57:50) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs=", "id"=>"2", "page"=>{"name"=>"FirstPage", "content"=>"This is the newest page content. Edited in a *text area!* :)\r\n\r\n<code>Check out some code.</code>\r\n\r\nHere I'd be linking to SecondPage.", "internal"=>"1"}}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."id" = 2) [0m
+  [4;36;1mRevision Create (0.4ms)[0m   [0;1mINSERT INTO "revisions" ("created_at", "updated_at", "page_id", "content") VALUES('2009-07-14 18:57:50', '2009-07-14 18:57:50', NULL, 'This is the newest page content. Edited in a *text area!* :)
+
+<code>Check out some code.</code>
+
+Here I''d be linking to SecondPage.')[0m
+  [4;35;1mRevision Update (0.3ms)[0m   [0mUPDATE "revisions" SET "updated_at" = '2009-07-14 18:57:50', "page_id" = 2 WHERE "id" = 7[0m
+Redirected to http://localhost:3000/pages/FirstPage
+Completed in 22ms (DB: 1) | 302 Found [http://localhost/pages/2]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:57:51) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.4ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 16ms (View: 9, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:58:06) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mRevision Load (0.3ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 93ms (View: 9, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:58:09) [GET]
+  Parameters: {"name"=>"SecondPage"}
+  [4;36;1mPage Load (0.1ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'SecondPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.name) on line #1 of app/views/pages/show.html.erb:
+1: <h1><%=h @page.name %></h1>
+2: 
+3: <p>
+4: 	<em>Last Revised: <%= @page.revisions.last.updated_at %></em>
+
+    app/views/pages/show.html.erb:1
+    app/controllers/pages_controller.rb:18:in `show'
+
+Rendered rescues/_trace (51.1ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 14:58:21) [GET]
+  [4;35;1mPage Load (0.6ms)[0m   [0mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 12ms (View: 7, DB: 1) | 200 OK [http://localhost/pages]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 14:58:24) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.3ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 15ms (View: 8, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:00:58) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mRevision Load (0.5ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 48ms (View: 41, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:01:00) [GET]
+  Parameters: {"name"=>"SecondPage"}
+  [4;36;1mPage Load (0.1ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'SecondPage') LIMIT 1[0m
+Rendered pages/_nonexistent_page (0.6ms)
+
+ActionController::DoubleRenderError (Can only render or redirect once per action):
+  app/controllers/pages_controller.rb:22:in `show'
+
+Rendered rescues/_trace (44.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:01:40) [GET]
+  Parameters: {"name"=>"SecondPage"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'SecondPage') LIMIT 1[0m
+Rendered pages/_nonexistent_page (0.2ms)
+Completed in 8ms (View: 1, DB: 0) | 200 OK [http://localhost/pages/SecondPage]
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-07-14 15:01:48) [GET]
+  Parameters: {"name"=>"SecondPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'SecondPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/edit
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/pages/edit.html.erb:
+1: <h1>Editing page</h1>
+2: 
+3: <% form_for(@page, :url => {:controller => 'pages', :action => 'update', :id => @page.id}) do |f| %>
+4:   <%= f.error_messages %>
+5: 
+6:   <p>
+
+    app/views/pages/edit.html.erb:3
+
+Rendered rescues/_trace (48.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:04:45) [GET]
+  Parameters: {"name"=>"SecondPage"}
+  [4;35;1mPage Load (0.1ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'SecondPage') LIMIT 1[0m
+Rendered pages/_nonexistent_page (0.3ms)
+Completed in 7ms (View: 1, DB: 0) | 200 OK [http://localhost/pages/SecondPage]
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-07-14 15:04:47) [GET]
+  Parameters: {"name"=>"SecondPage"}
+  [4;36;1mPage Load (0.1ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'SecondPage') LIMIT 1[0m
+  [4;35;1mRevision Create (0.4ms)[0m   [0mINSERT INTO "revisions" ("created_at", "updated_at", "page_id", "content") VALUES('2009-07-14 19:04:47', '2009-07-14 19:04:47', NULL, '*WikiLohi* uses *Textile* to _style_ content!
+
+Learn more about using Textile here: "Textile Reference":http://hobix.com/textile/')[0m
+Rendering template within layouts/pages
+Rendering pages/edit
+Completed in 18ms (View: 3, DB: 1) | 200 OK [http://localhost/pages/SecondPage/edit]
+
+
+Processing PagesController#update (for 127.0.0.1 at 2009-07-14 15:04:51) [POST]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs=", "page"=>{"name"=>"SecondPage", "content"=>"*WikiLohi* uses *Textile* to _style_ content!\r\n\r\nLearn more about using Textile here: \"Textile Reference\":http://hobix.com/textile/", "internal"=>"0"}}
+
+ActiveRecord::RecordNotFound (Couldn't find Page without an ID):
+  app/controllers/pages_controller.rb:68:in `update'
+
+Rendered rescues/_trace (121.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#update (for 127.0.0.1 at 2009-07-14 15:06:16) [POST]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs=", "page"=>{"name"=>"SecondPage", "content"=>"*WikiLohi* uses *Textile* to _style_ content!\r\n\r\nLearn more about using Textile here: \"Textile Reference\":http://hobix.com/textile/", "internal"=>"0"}}
+  [4;36;1mRevision Create (0.4ms)[0m   [0;1mINSERT INTO "revisions" ("created_at", "updated_at", "page_id", "content") VALUES('2009-07-14 19:06:16', '2009-07-14 19:06:16', NULL, '*WikiLohi* uses *Textile* to _style_ content!
+
+Learn more about using Textile here: "Textile Reference":http://hobix.com/textile/')[0m
+  [4;35;1mPage Create (0.3ms)[0m   [0mINSERT INTO "pages" ("name", "created_at", "updated_at", "internal") VALUES('SecondPage', '2009-07-14 19:06:16', '2009-07-14 19:06:16', 'f')[0m
+  [4;36;1mRevision Update (0.1ms)[0m   [0;1mUPDATE "revisions" SET "updated_at" = '2009-07-14 19:06:16', "page_id" = 4 WHERE "id" = 9[0m
+  [4;35;1mRevision Create (0.4ms)[0m   [0mINSERT INTO "revisions" ("created_at", "updated_at", "page_id", "content") VALUES('2009-07-14 19:06:16', '2009-07-14 19:06:16', NULL, '*WikiLohi* uses *Textile* to _style_ content!
+
+Learn more about using Textile here: "Textile Reference":http://hobix.com/textile/')[0m
+  [4;36;1mRevision Update (0.3ms)[0m   [0;1mUPDATE "revisions" SET "updated_at" = '2009-07-14 19:06:16', "page_id" = 4 WHERE "id" = 10[0m
+Redirected to http://localhost:3000/pages/SecondPage
+Completed in 32ms (DB: 2) | 302 Found [http://localhost/pages/update]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:06:17) [GET]
+  Parameters: {"name"=>"SecondPage"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'SecondPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mRevision Load (0.4ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 44ms (View: 37, DB: 1) | 200 OK [http://localhost/pages/SecondPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:06:28) [GET]
+  Parameters: {"name"=>"SecondPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'SecondPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.3ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 15ms (View: 8, DB: 1) | 200 OK [http://localhost/pages/SecondPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:06:36) [GET]
+  Parameters: {"name"=>"WikiLohi"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'WikiLohi') LIMIT 1[0m
+Rendered pages/_nonexistent_page (0.2ms)
+Completed in 7ms (View: 1, DB: 0) | 200 OK [http://localhost/pages/WikiLohi]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:08:33) [GET]
+  Parameters: {"name"=>"WikiLohi"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'WikiLohi') LIMIT 1[0m
+ERROR: compiling _run_erb_app47views47pages47_nonexistent_page46html46erb_locals_nonexistent_page_object RAISED compile error
+/Users/brads/Documents/Development/wikilohi/app/views/pages/_nonexistent_page.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting ')'
+...; @output_buffer.concat " page exists yet on this WikiLohi. ...
+                              ^
+/Users/brads/Documents/Development/wikilohi/app/views/pages/_nonexistent_page.html.erb:1: syntax error, unexpected $undefined, expecting ')'
+...s WikiLohi. Would you like to\") %> "; @output_buffer.concat...
+                              ^
+/Users/brads/Documents/Development/wikilohi/app/views/pages/_nonexistent_page.html.erb:1: syntax error, unexpected ';', expecting ')'
+...existent_page}/edit") ).to_s); @output_buffer
+                              ^
+Function body:           def _run_erb_app47views47pages47_nonexistent_page46html46erb_locals_nonexistent_page_object(local_assigns)
+            old_output_buffer = output_buffer;nonexistent_page = local_assigns[:nonexistent_page];object = local_assigns[:object];;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat(( wikitize("No <%= nonexistent_page ).to_s); @output_buffer.concat " page exists yet on this WikiLohi. Would you like to\") %> "; @output_buffer.concat(( link_to 'create it?', "/pages/#{nonexistent_page}/edit") ).to_s); @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/brads/Documents/Development/wikilohi/app/views/pages/_nonexistent_page.html.erb:4:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable_partial.rb:20:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable_partial.rb:19:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable_partial.rb:44:in `render_partial'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/partials.rb:184:in `render_partial'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:262:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:964:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/brads/Documents/Development/wikilohi/app/controllers/pages_controller.rb:19:in `show'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/brads/Documents/Development/wikilohi/app/views/pages/_nonexistent_page.html.erb:1: syntax error, unexpected tIDENTIFIER, expecting ')'
+...; @output_buffer.concat " page exists yet on this WikiLohi. ...
+                              ^
+/Users/brads/Documents/Development/wikilohi/app/views/pages/_nonexistent_page.html.erb:1: syntax error, unexpected $undefined, expecting ')'
+...s WikiLohi. Would you like to\") %> "; @output_buffer.concat...
+                              ^
+/Users/brads/Documents/Development/wikilohi/app/views/pages/_nonexistent_page.html.erb:1: syntax error, unexpected ';', expecting ')'
+...existent_page}/edit") ).to_s); @output_buffer
+                              ^) on line #1 of app/views/pages/_nonexistent_page.html.erb:
+1: <%= wikitize("No <%= nonexistent_page %> page exists yet on this WikiLohi. Would you like to") %> <%= link_to 'create it?', "/pages/#{nonexistent_page}/edit") %>
+
+    app/views/pages/_nonexistent_page.html.erb:4:in `compile!'
+    app/controllers/pages_controller.rb:19:in `show'
+
+Rendered rescues/_trace (48.8ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:08:45) [GET]
+  Parameters: {"name"=>"WikiLohi"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'WikiLohi') LIMIT 1[0m
+ERROR: compiling _run_erb_app47views47pages47_nonexistent_page46html46erb_locals_nonexistent_page_object RAISED compile error
+/Users/brads/Documents/Development/wikilohi/app/views/pages/_nonexistent_page.html.erb:1: syntax error, unexpected ')', expecting kEND
+...nexistent_page}/edit") ).to_s); @output_buffer
+                              ^
+Function body:           def _run_erb_app47views47pages47_nonexistent_page46html46erb_locals_nonexistent_page_object(local_assigns)
+            old_output_buffer = output_buffer;nonexistent_page = local_assigns[:nonexistent_page];object = local_assigns[:object];;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat(( wikitize("No #{nonexistent_page} page exists yet on this WikiLohi. Would you like to") ).to_s); @output_buffer.concat " "; @output_buffer.concat(( link_to 'create it?', "/pages/#{nonexistent_page}/edit") ).to_s); @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/brads/Documents/Development/wikilohi/app/views/pages/_nonexistent_page.html.erb:4:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable_partial.rb:20:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable_partial.rb:19:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable_partial.rb:44:in `render_partial'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/partials.rb:184:in `render_partial'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:262:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:964:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/brads/Documents/Development/wikilohi/app/controllers/pages_controller.rb:19:in `show'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/brads/Documents/Development/wikilohi/app/views/pages/_nonexistent_page.html.erb:1: syntax error, unexpected ')', expecting kEND
+...nexistent_page}/edit") ).to_s); @output_buffer
+                              ^) on line #1 of app/views/pages/_nonexistent_page.html.erb:
+1: <%= wikitize("No #{nonexistent_page} page exists yet on this WikiLohi. Would you like to") %> <%= link_to 'create it?', "/pages/#{nonexistent_page}/edit") %>
+
+    app/views/pages/_nonexistent_page.html.erb:4:in `compile!'
+    app/controllers/pages_controller.rb:19:in `show'
+
+Rendered rescues/_trace (128.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:09:27) [GET]
+  Parameters: {"name"=>"WikiLohi"}
+  [4;36;1mPage Load (0.1ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'WikiLohi') LIMIT 1[0m
+Rendered pages/_nonexistent_page (0.6ms)
+Completed in 10ms (View: 4, DB: 0) | 200 OK [http://localhost/pages/WikiLohi]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:09:39) [GET]
+  Parameters: {"name"=>"WikiLohi"}
+  [4;35;1mPage Load (0.1ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'WikiLohi') LIMIT 1[0m
+ERROR: compiling _run_erb_app47views47pages47_nonexistent_page46html46erb_locals_nonexistent_page_object RAISED compile error
+/Users/brads/Documents/Development/wikilohi/app/views/pages/_nonexistent_page.html.erb:2: syntax error, unexpected ')', expecting kEND
+...nexistent_page}/edit") ).to_s); @output_buffer
+                              ^
+Function body:           def _run_erb_app47views47pages47_nonexistent_page46html46erb_locals_nonexistent_page_object(local_assigns)
+            old_output_buffer = output_buffer;nonexistent_page = local_assigns[:nonexistent_page];object = local_assigns[:object];;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat(( wikitize("No #{nonexistent_page} page exists yet on this WikiLohi. Would you like to") ).to_s); @output_buffer.concat " \n"
+; @output_buffer.concat(( link_to "create it?", "/pages/#{nonexistent_page}/edit") ).to_s); @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/brads/Documents/Development/wikilohi/app/views/pages/_nonexistent_page.html.erb:5:in `compile!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable_partial.rb:20:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:26:in `benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable_partial.rb:19:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/renderable_partial.rb:44:in `render_partial'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/partials.rb:184:in `render_partial'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:262:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:964:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/brads/Documents/Development/wikilohi/app/controllers/pages_controller.rb:19:in `show'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1322:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/head.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/methodoverride.rb:24:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+
+ActionView::TemplateError (compile error
+/Users/brads/Documents/Development/wikilohi/app/views/pages/_nonexistent_page.html.erb:2: syntax error, unexpected ')', expecting kEND
+...nexistent_page}/edit") ).to_s); @output_buffer
+                              ^) on line #2 of app/views/pages/_nonexistent_page.html.erb:
+1: <%= wikitize("No #{nonexistent_page} page exists yet on this WikiLohi. Would you like to") %> 
+2: <%= link_to "create it?", "/pages/#{nonexistent_page}/edit") %>
+
+    app/views/pages/_nonexistent_page.html.erb:5:in `compile!'
+    app/controllers/pages_controller.rb:19:in `show'
+
+Rendered rescues/_trace (48.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:09:50) [GET]
+  Parameters: {"name"=>"WikiLohi"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'WikiLohi') LIMIT 1[0m
+Rendered pages/_nonexistent_page (0.7ms)
+Completed in 11ms (View: 4, DB: 0) | 200 OK [http://localhost/pages/WikiLohi]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 15:10:03) [GET]
+  [4;35;1mPage Load (0.6ms)[0m   [0mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 10ms (View: 4, DB: 1) | 200 OK [http://localhost/pages/]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 15:13:36) [GET]
+  [4;36;1mPage Load (0.6ms)[0m   [0;1mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 10ms (View: 4, DB: 1) | 200 OK [http://localhost/pages/]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 15:14:32) [GET]
+  [4;35;1mPage Load (0.6ms)[0m   [0mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 10ms (View: 5, DB: 1) | 200 OK [http://localhost/pages/]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 15:14:39) [GET]
+  [4;36;1mPage Load (0.6ms)[0m   [0;1mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 11ms (View: 6, DB: 1) | 200 OK [http://localhost/pages/]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 15:14:48) [GET]
+  [4;35;1mPage Load (0.7ms)[0m   [0mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 12ms (View: 6, DB: 1) | 200 OK [http://localhost/pages/]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 15:14:56) [GET]
+  [4;36;1mPage Load (0.7ms)[0m   [0;1mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 12ms (View: 6, DB: 1) | 200 OK [http://localhost/pages/]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 15:15:16) [GET]
+  [4;35;1mPage Load (0.7ms)[0m   [0mSELECT * FROM "pages" [0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 13ms (View: 7, DB: 1) | 200 OK [http://localhost/pages/]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 15:19:38) [GET]
+  [4;36;1mPage Load (0.7ms)[0m   [0;1mSELECT * FROM "pages" ORDER BY name ASC[0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 10ms (View: 4, DB: 1) | 200 OK [http://localhost/pages/]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 15:19:43) [GET]
+  [4;35;1mPage Load (0.7ms)[0m   [0mSELECT * FROM "pages" ORDER BY name DESC[0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 9ms (View: 3, DB: 1) | 200 OK [http://localhost/pages/]
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-07-14 15:19:47) [GET]
+  [4;36;1mPage Load (0.6ms)[0m   [0;1mSELECT * FROM "pages" ORDER BY name ASC[0m
+Rendering template within layouts/pages
+Rendering pages/index
+Completed in 9ms (View: 3, DB: 1) | 200 OK [http://localhost/pages/]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:19:50) [GET]
+  Parameters: {"name"=>"SecondPage"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'SecondPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mRevision Load (0.3ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 15ms (View: 8, DB: 1) | 200 OK [http://localhost/pages/SecondPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:20:13) [GET]
+  Parameters: {"name"=>"SecondPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'SecondPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.3ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 18ms (View: 11, DB: 1) | 200 OK [http://localhost/pages/SecondPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:22:41) [GET]
+  Parameters: {"name"=>"SecondPage"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'SecondPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mRevision Load (0.4ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 93ms (View: 11, DB: 1) | 200 OK [http://localhost/pages/SecondPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:22:55) [GET]
+  Parameters: {"name"=>"SecondPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'SecondPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.3ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 19ms (View: 11, DB: 1) | 200 OK [http://localhost/pages/SecondPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:27:34) [GET]
+  Parameters: {"name"=>"SecondPage"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'SecondPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mRevision Load (0.4ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 20ms (View: 12, DB: 1) | 200 OK [http://localhost/pages/SecondPage]
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-07-14 15:29:44) [GET]
+  Parameters: {"name"=>"SecondPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'SecondPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/edit
+  [4;35;1mRevision Load (0.3ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 15ms (View: 8, DB: 1) | 200 OK [http://localhost/pages/SecondPage/edit]
+
+
+Processing PagesController#update (for 127.0.0.1 at 2009-07-14 15:29:53) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"RnLt24bryJtj+bRUlaJy6TEwDk6CY1b1+LLm4b0hvGs=", "id"=>"4", "page"=>{"name"=>"SecondPage", "content"=>"*WikiLohi* uses *Textile* to _style_ content!\r\n\r\nLearn more about using Textile here: \"Textile Reference\":http://hobix.com/textile/\r\n\r\nCheck out FirstPage.", "internal"=>"0"}}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."id" = 4) [0m
+  [4;35;1mRevision Create (0.4ms)[0m   [0mINSERT INTO "revisions" ("created_at", "updated_at", "page_id", "content") VALUES('2009-07-14 19:29:53', '2009-07-14 19:29:53', NULL, '*WikiLohi* uses *Textile* to _style_ content!
+
+Learn more about using Textile here: "Textile Reference":http://hobix.com/textile/
+
+Check out FirstPage.')[0m
+  [4;36;1mRevision Update (0.4ms)[0m   [0;1mUPDATE "revisions" SET "updated_at" = '2009-07-14 19:29:53', "page_id" = 4 WHERE "id" = 11[0m
+Redirected to http://localhost:3000/pages/SecondPage
+Completed in 21ms (DB: 1) | 302 Found [http://localhost/pages/4]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:29:53) [GET]
+  Parameters: {"name"=>"SecondPage"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'SecondPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mRevision Load (0.4ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 96ms (View: 10, DB: 1) | 200 OK [http://localhost/pages/SecondPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:30:17) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.3ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 16ms (View: 8, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:30:19) [GET]
+  Parameters: {"name"=>"SecondPage"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'SecondPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mRevision Load (0.3ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 16ms (View: 9, DB: 1) | 200 OK [http://localhost/pages/SecondPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:30:21) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.3ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 15ms (View: 8, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:30:25) [GET]
+  Parameters: {"name"=>"SecondPage"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'SecondPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mRevision Load (0.3ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 4) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 15ms (View: 8, DB: 1) | 200 OK [http://localhost/pages/SecondPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:30:27) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.3ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 15ms (View: 8, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:32:01) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mRevision Load (0.3ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 19ms (View: 11, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:32:11) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.4ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 19ms (View: 12, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:33:47) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;36;1mRevision Load (0.3ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 16ms (View: 9, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:33:48) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.3ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 16ms (View: 8, DB: 1) | 200 OK [http://localhost/pages/FirstPage]
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-07-14 15:34:56) [GET]
+  Parameters: {"name"=>"FirstPage"}
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM "pages" WHERE ("pages"."name" = 'FirstPage') LIMIT 1[0m
+Rendering template within layouts/pages
+Rendering pages/show
+  [4;35;1mRevision Load (0.4ms)[0m   [0mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "revisions" WHERE ("revisions".page_id = 2) ORDER BY revisions.id DESC LIMIT 1[0m
+Completed in 154ms (View: 136, DB: 1) | 200 OK [http://localhost/pages/FirstPage]

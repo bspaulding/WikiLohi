@@ -1,4 +1,13 @@
 ActionController::Routing::Routes.draw do |map|
+	map.resources :pages, :except => [:edit, :show, :destroy], :has_many => :revisions, :shallow => true
+	
+	map.page '/pages/:name', :controller => 'pages', :action => 'show', :conditions => { :method => :get }
+	map.page '/pages/:name', :controller => 'pages', :action => 'destroy', :conditions => { :method => :delete }
+	map.connect '/pages/:name/edit', :controller => 'pages', :action => 'edit'
+
+	map.resources :revisions, :only => [:index]
+	map.root :controller => 'pages', :action => 'index'
+	
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
